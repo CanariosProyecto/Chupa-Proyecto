@@ -9,7 +9,7 @@ export default function Input() {
     <View style={styles.inputContainer}>
       <TextInput
         style={[styles.input, isFocused && styles.inputFocused]}
-        placeholder="Escribí acá"
+        placeholder=""
         value={text}
         onChangeText={setText}
         onFocus={() => setIsFocused(true)}
@@ -28,10 +28,9 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
-    padding: 10,
+    padding: 5,
     width: 250,
-    borderRadius: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#eef6b0',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
@@ -39,6 +38,6 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   inputFocused: {
-    borderColor: '#6200ee',
+    borderColor: 'black',
   },
 });
