@@ -1,14 +1,9 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import DrawerNavigation from "./navigation/drawerNavigation";
-import 'react-native-gesture-handler';
+// App.js
+import React from 'react';
+import AppNavigator from './componentes/navigation'; // O el archivo de navegación que estés usando
 
-const Stack = createStackNavigator();
+const App = () => {
+  return <AppNavigator />;
+};
 
-export default function App() {
-  return (
-    <DrawerNavigation />
-  );
-}
-
+export default App;
