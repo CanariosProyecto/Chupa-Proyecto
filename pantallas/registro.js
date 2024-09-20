@@ -22,9 +22,6 @@ const RegistroPantalla = ({ navigation }) => {
   return (
     <View style={styles.container}>
 
-        <Text style={styles.title}>borrrar dsp</Text>
-
-
       <Text style={styles.title}>Crear cuenta</Text>
       <Text style={styles.texnormal} >Nombre</Text>
       <Imputexport
@@ -53,6 +50,7 @@ const RegistroPantalla = ({ navigation }) => {
         value={password}
         onChangeText={setPassword}
       />
+      <Text>{"\n"}</Text>
 
      <Boton/>
   
@@ -72,11 +70,12 @@ const RegistroPantalla = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#eef6b0',
+    backgroundColor: '#93AE9F',
     padding: 20,
     justifyContent: 'center',
   },
   title: {
+    marginTop: 80,
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
@@ -98,6 +97,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     borderBottomWidth: 1, 
     borderBottomColor: 'black', 
+    marginBottom:150,
   },
     TextoDelink: {
       color: 'black',

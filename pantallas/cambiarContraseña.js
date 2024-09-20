@@ -24,24 +24,26 @@ export default function CambiarContraseña() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#eef6b0',
+    backgroundColor: '#93AE9F',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 20
+    padding: 100,
   },
   contraseña: {
     flex: 1,
     marginTop: '50',
-    backgroundColor: '#86895d',
-    height: 500,
+    backgroundColor: '#456E57',
+    height: 400,
     width: 400,
     borderRadius: 10,
-    padding: 20,
+    paddingHorizontal: 20,
     margin: 20,
     fontWeight: 800,
+    resizeMode: 'cover', // Las imágenes se adaptarán manteniendo la proporción
   },
   titulo: {
-    marginLeft: 15,
+    marginTop: 5,
+    marginLeft: 40,
     fontSize: 35,
 
   },
@@ -50,14 +52,4 @@ const styles = StyleSheet.create({
     marginTop: 3,
   }
 });
-
-
-
-
-
-
-
-
-
-
 

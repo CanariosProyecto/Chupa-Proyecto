@@ -18,7 +18,7 @@ import Mates from '../pantallas/mates';
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
 
-// Componente para mostrar el logo centrado en el encabezado
+// Component para mostrar el logo centrado en el encabezado
 function LogoTitle() {
   return (
     <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -30,14 +30,16 @@ function LogoTitle() {
   );
 }
 
-// Tabs personalizados para cada pantalla
-function createTabs(screenComponent) {
-  return () => (
+// Tabs que se usarán en todas las pantallas
+function Tabs() {
+  return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ color, size }) => {
           let iconName;
-          if (route.name === 'Inicio') {
+          if (route.name === 'Login') {
+            iconName = 'arrow-back-outline'; // Icono de flecha
+          } else if (route.name === 'Inicio') {
             iconName = 'home-outline'; // Icono de casa
           } else if (route.name === 'Carrito') {
             iconName = 'cart-outline'; // Icono de carrito de compras
@@ -53,7 +55,7 @@ function createTabs(screenComponent) {
         },
       })}
     >
-      <Tab.Screen name="Inicio" component={screenComponent} options={{ headerShown: false }} />
+      <Tab.Screen name="Inicio" component={InicioScreen} options={{ headerShown: false }} />
       <Tab.Screen name="Carrito" component={CarritoScreen} options={{ headerShown: false }} />
     </Tab.Navigator>
   );
@@ -106,27 +108,27 @@ export default function DrawerNavigation() {
       >
         <Drawer.Screen
           name="Inicio"
-          component={createTabs(InicioScreen)} // Tabs personalizados para la pantalla Inicio
+          component={Tabs}
           options={{ drawerLabel: 'Inicio' }}
         />
         <Drawer.Screen
           name="Cambiar Contraseña"
-          component={createTabs(CambiarContraseña)} // Tabs personalizados para la pantalla Cambiar Contraseña
+          component={CambiarContraseña}
           options={{ drawerLabel: 'Cambiar Contraseña' }}
         />
         <Drawer.Screen
           name="Inicio de sesión"
-          component={createTabs(InicioSes)} // Tabs personalizados para la pantalla de Inicio de sesión
+          component={InicioSes}
           options={{ drawerLabel: 'Inicio de sesión' }}
         />
         <Drawer.Screen
           name="Registro"
-          component={createTabs(RegistroPantalla)} // Tabs personalizados para la pantalla de Registro
+          component={RegistroPantalla}
           options={{ drawerLabel: 'Registro' }}
         />
         <Drawer.Screen
           name="Mates"
-          component={createTabs(Mates)} // Tabs personalizados para la pantalla de Mates
+          component={Mates}
           options={{ drawerLabel: 'Mates' }}
         />
       </Drawer.Navigator>
@@ -146,3 +148,4 @@ const styles = StyleSheet.create({
     resizeMode: 'contain', // Mantiene la proporción del logo
   },
 });
+

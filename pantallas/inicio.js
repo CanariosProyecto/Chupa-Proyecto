@@ -49,7 +49,7 @@ export default function Inicio() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#eef6b0',
+    backgroundColor: '#93AE9F',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   inicio: {
     flex: 1,
     marginTop: '50',
-    backgroundColor: '#eef6b0',
+    backgroundColor: '#93AE9F',
     width: 400,
     borderRadius: 10,
     padding: 20,
@@ -84,13 +84,12 @@ const styles = StyleSheet.create({
   imagen: {
     height: 230,
     width: 230,
-    backgroundColor: "#86895d", 
+    backgroundColor: "#456E57", 
     borderRadius: 15,
     marginLeft: 70,
   }
 
 });
-
 
 
 

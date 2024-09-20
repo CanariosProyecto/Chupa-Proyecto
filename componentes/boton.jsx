@@ -6,7 +6,7 @@ export default function Boton() {
     <View style={styles.container}>
       <Button
         title="Aceptar" onPress={() => Alert.alert('boton simple')}
-        color="lightsteelblue"  
+        color="black"  
         style={styles.Boton}></Button>
 
     </View>

@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: '93AE9F',
     borderWidth: 1,
     padding: 5,
     width: 250,
-    backgroundColor: '#eef6b0',
+    backgroundColor: '#93AE9F',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,

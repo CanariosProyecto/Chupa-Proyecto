@@ -35,16 +35,16 @@ const LoginScreen = ({ navigation }) => {
             onChangeText={setPassword}
             secureTextEntry
           />
-
+          <Text>{"\n"}</Text>
           <Boton onPress={handleLogin} />
         </View>
 
         <View style={styles.extraOptions}>
-          <TouchableOpacity onPress={() => Alert.alert('Funcionalidad no implementada', 'Función de "Olvidaste tu contraseña" aún no implementada.')}>
+          <TouchableOpacity onPress={() => navigation.navigate('cambiarContraseña')}>
             <Text style={styles.link}>¿Olvidaste tu contraseña?</Text>
           </TouchableOpacity>
           <Text style={styles.link2}>¿No tienes cuenta aún?</Text>
-          <TouchableOpacity onPress={() => Alert.alert('Funcionalidad no implementada', 'Función de "Crear cuenta" aún no implementada.')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Inicio')}>
             <Text style={styles.link1}>Crear cuenta</Text>
           </TouchableOpacity>
         </View>
@@ -56,7 +56,7 @@ const LoginScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#eef6b0',
+    backgroundColor: '#93AE9F',
   },
   content: {
     flex: 1,
