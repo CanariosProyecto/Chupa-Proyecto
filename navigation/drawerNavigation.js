@@ -13,6 +13,11 @@ import CambiarContraseña from '../pantallas/cambiarContraseña';
 import InicioSes from '../pantallas/inicioSes';
 import RegistroPantalla from '../pantallas/registro';
 import Mates from '../pantallas/mates';
+import Termos from '../pantallas/termos';
+import Bombillas from '../pantallas/bombillas';
+import Yerbas from '../pantallas/yerbas';
+
+
 
 // Crear los navegadores
 const Drawer = createDrawerNavigator();
@@ -129,6 +134,21 @@ export default function DrawerNavigation() {
           component={createTabs(Mates)} // Tabs personalizados para la pantalla de Mates
           options={{ drawerLabel: 'Mates' }}
         />
+        <Drawer.Screen
+          name="Termos"
+          component={createTabs(Termos)} // Tabs personalizados para la pantalla de Mates
+          options={{ drawerLabel: 'termos' }}
+        />
+        <Drawer.Screen
+          name="Bombillas"
+          component={createTabs(Bombillas)} // Tabs personalizados para la pantalla de Mates
+          options={{ drawerLabel: 'Bombillas' }}
+        />
+        <Drawer.Screen
+        name="Yerbas"
+        component={createTabs(Yerbas)} // Tabs personalizados para la pantalla de Mates
+        options={{ drawerLabel: 'Yerbas' }}
+      />
       </Drawer.Navigator>
     </NavigationContainer>
   );
