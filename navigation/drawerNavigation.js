@@ -16,6 +16,7 @@ import Mates from '../pantallas/mates';
 import Termos from '../pantallas/termos';
 import Bombillas from '../pantallas/bombillas';
 import Yerbas from '../pantallas/yerbas';
+import Producto from '../pantallas/producto';
 
 
 
@@ -148,6 +149,11 @@ export default function DrawerNavigation() {
         name="Yerbas"
         component={createTabs(Yerbas)} // Tabs personalizados para la pantalla de Mates
         options={{ drawerLabel: 'Yerbas' }}
+      />
+      <Drawer.Screen
+        name="Producto"
+        component={createTabs(Producto)} // Tabs personalizados para la pantalla de Mates
+        options={{ drawerLabel: 'Producto' }}
       />
       </Drawer.Navigator>
     </NavigationContainer>

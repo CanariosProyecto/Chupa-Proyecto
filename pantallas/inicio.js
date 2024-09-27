@@ -1,26 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import {StyleSheet, Text, View, Image } from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity, Button } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Boton from '/CANARIOS/Chupa-Proyecto/componentes/boton';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function Inicio() {
   let productos = [
     {
-      "imagen": require("../imagenes/mates.jpg")
+      "imagen": require("../imagenes/mates.jpg"),
+      "pantalla": "Mates"
     },
     {
-      "imagen": require("../imagenes/bombillas.jpg")
+      "imagen": require("../imagenes/bombillas.jpg"),
+      "pantalla": "Bombillas"
+
     },
     {
-      "imagen": require("../imagenes/termos.jpeg")
+      "imagen": require("../imagenes/termos.jpeg"),
+      "pantalla": "Termos"
+
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg")
+      "imagen": require("../imagenes/yerbas.jpg"),
+      "pantalla": "Yerbas"
+
     }
   ];
-
-  console.log(productos)
+  const navigation = useNavigation();
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -29,14 +36,19 @@ export default function Inicio() {
         {productos.map((item, index) => (
           <View key={index} style={styles.producto}>
             <View style={styles.imagen}> 
-            <Image
-              source={item.imagen}
-              resizeMode="contain"
-              style={{ width: 200, height: 200, alignItems: 'center', marginTop: 10,  marginLeft: 20, justifyContent: 'center' }}
-            />
-            </View>
-            <Text style={styles.boton}><Boton/></Text>
+            <TouchableOpacity onPress={() => navigation.navigate(item.pantalla)}> 
+                <Image
+                  source={item.imagen}
+                  resizeMode="contain"
+                  style={{ width: 200, height: 200, alignItems: 'center', marginTop: 10,  marginLeft: 20, justifyContent: 'center' }}
+                />
+            </TouchableOpacity>
             <Text style={styles.textoProducto}>{item.producto}</Text>
+            </View>
+            <Text style={styles.boton}>
+              <Boton onPress={() => navigation.navigate(item.pantalla)}/>
+            </Text>
+            <Text>{"\n"}</Text>
           </View>
         ))}
         <StatusBar style="auto" />
@@ -70,7 +82,7 @@ const styles = StyleSheet.create({
   },
   boton: {
     marginLeft: 140,
-    marginTop: 3,
+    marginTop: 3 ,
   },
   textoProducto: {
     fontSize: 20,
