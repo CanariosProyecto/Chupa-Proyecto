@@ -7,8 +7,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Logo from '../imagenes/logo.png'; // Ruta del logo
 
 // Pantallas
-import InicioScreen from '../pantallas/inicio';
-import CarritoScreen from '../pantallas/carrito';
+import Inicio from '../pantallas/inicio';
+import Carrito from '../pantallas/carrito';
 import CambiarContraseña from '../pantallas/cambiarContraseña';
 import InicioSes from '../pantallas/inicioSes';
 import RegistroPantalla from '../pantallas/registro';
@@ -38,7 +38,7 @@ function LogoTitle() {
 
 // Tabs personalizados para cada pantalla
 function createTabs(screenComponent) {
-  return () => (
+  return ({ navigation }) => (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ color, size }) => {
@@ -59,8 +59,23 @@ function createTabs(screenComponent) {
         },
       })}
     >
-      <Tab.Screen name="Inicio" component={screenComponent} options={{ headerShown: false }} />
-      <Tab.Screen name="Carrito" component={CarritoScreen} options={{ headerShown: false }} />
+      <Tab.Screen 
+        name="Inicio" 
+        component={screenComponent} 
+        options={{ headerShown: false }}
+        listeners={{
+          tabPress: e => {
+            // Prevenir la navegación predeterminada
+            e.preventDefault();
+            // Restablecer el stack a la pantalla de Inicio
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'Inicio' }],
+            });
+          }
+        }}
+      />
+      <Tab.Screen name="Carrito" component={Carrito} options={{ headerShown: false }} />
     </Tab.Navigator>
   );
 }
@@ -99,11 +114,11 @@ export default function DrawerNavigation() {
           headerRight: () => (
             <View style={{ flexDirection: 'row', marginRight: 10 }}>
               {/* Icono de Lupa */}
-              <TouchableOpacity onPress={() => alert('Buscar!')}>
+              <TouchableOpacity onPress={() => alert('Perfil!')}>
                 <Icon name="search-outline" size={25} color="#fff" style={{ marginRight: 15 }} />
               </TouchableOpacity>
               {/* Icono de Persona */}
-              <TouchableOpacity onPress={() => alert('Perfil!')}>
+              <TouchableOpacity onPress={() => navigation.navigate("Registro")}>
                 <Icon name="person-outline" size={25} color="#fff" />
               </TouchableOpacity>
             </View>
@@ -112,7 +127,7 @@ export default function DrawerNavigation() {
       >
         <Drawer.Screen
           name="Inicio"
-          component={createTabs(InicioScreen)} // Tabs personalizados para la pantalla Inicio
+          component={createTabs(Inicio)} // Tabs personalizados para la pantalla Inicio
           options={{ drawerLabel: 'Inicio' }}
         />
         <Drawer.Screen

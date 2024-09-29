@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet, TouchableOpacity } from 'react-native';
-import Imputexport from '../componentes/input'; 
+import { View, Text, Alert, StyleSheet, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import TextInput from '../componentes/input'; 
 import Boton from '../componentes/boton';
 
 const RegistroPantalla = ({ navigation }) => {
@@ -13,96 +13,116 @@ const RegistroPantalla = ({ navigation }) => {
     if (username === '' || password === '') {
       Alert.alert('Error', 'Por favor, completa todos los campos.');
     } else {
-      // Aquí puedes añadir la lógica de autenticación en el futuro
       Alert.alert('Éxito', '¡Inicio de sesión exitoso!');
       navigation.navigate('Inicio'); // Navega a la pantalla de inicio
     }
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      style={{ flex: 1 }}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}
+    >
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Crear cuenta</Text>
 
-      <Text style={styles.title}>Crear cuenta</Text>
-      <Text style={styles.texnormal} >Nombre</Text>
-      <Imputexport
-        label="Nombre"
-        value={username}
-        onChangeText={setUsername}
-      />
+          <Text style={styles.label}>Nombre</Text>
+          <TextInput
+            label="Nombre"
+            value={username}
+            onChangeText={setUsername}
+            style={styles.input} // Aplicamos el estilo a los inputs
+          />
 
-      <Text style={styles.texnormal} >Apellido</Text>
-      <Imputexport
-        label="Apellido"
-        value={apellido}
-        onChangeText={setApellido}
-      />
+          <Text style={styles.label}>Apellido</Text>
+          <TextInput
+            label="Apellido"
+            value={apellido}
+            onChangeText={setApellido}
+            style={styles.input}
+          />
 
-      <Text style={styles.texnormal} >Email</Text>
-      <Imputexport
-        label="email"
-        value={mail}
-        onChangeText={setMail}
-      />
+          <Text style={styles.label}>Email</Text>
+          <TextInput
+            label="Email"
+            value={mail}
+            onChangeText={setMail}
+            style={styles.input}
+          />
 
-      <Text style={styles.texnormal} >Contraseña</Text>
-      <Imputexport
-        label="contraseña"
-        value={password}
-        onChangeText={setPassword}
-      />
-      <Text>{"\n"}</Text>
+          <Text style={styles.label}>Contraseña</Text>
+          <TextInput
+            style={styles.input}
+            value={password}
+            onChangeText={setPassword}
+          secureTextEntry
+          />
 
-     <Boton/>
-  
-     <View style={styles.extraOptions}>
-     <Text styles={styles.textolink}> ¿Ya tenes cuenta? </Text>
-     </View>
-     
-      <View style={styles.extraOptions}>
-        <TouchableOpacity onPress={() => Alert.alert('Funcionalidad no implementada', 'Función de "Olvidaste tu contraseña" aún no implementada.')}>
-          <Text style={styles.link}> Inicio de sesion  </Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+
+          <View style={styles.boton}>
+            <Boton onPress={handleLogin} title="Aceptar" />
+          </View>
+
+          <View style={styles.cuenta}>
+            <Text style={styles.textoCuenta}>¿Ya tenés cuenta?</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Inicio de sesión')}>
+              <Text style={styles.textLink}>Inicia sesión</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#93AE9F',
+    backgroundColor: '#f5f5dc', // Color de fondo
     padding: 20,
     justifyContent: 'center',
   },
   title: {
-    marginTop: 80,
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10,
-    bottom: 70,
     textAlign: 'center',
+    marginBottom: 40,
   },
-  texnormal: {
-    fontSize: 14,
+  label: {
+    fontSize: 16,
     fontWeight: 'bold',
-    marginLeft: 50, 
+    marginBottom: 10,
+    marginLeft: 50, // Ajustamos los márgenes para coincidir con la imagen
   },
-  extraOptions: {
-    marginTop: 5,
-    alignItems: 'center',
+  input: {
+    backgroundColor: '#fff', // Color de fondo del input
+    borderColor: '#8A8A8A',     // Color del borde
+    borderWidth: 1,             // Grosor del borde
+    borderRadius: 5,            // Borde redondeado
+    paddingHorizontal: 10,      // Espaciado interior
+    height: 40,                 // Altura del input
+    marginHorizontal: 50,       // Márgenes laterales
+    marginBottom: 15,           // Espacio entre los inputs
   },
-  link: {
+  boton: {
+    marginTop: 30, // Espacio entre el formulario y el botón
+    alignItems: 'center', // Centrar el botón
+  },
+  cuenta: {
+    marginTop: 40,
+    alignItems: 'center', // Centramos los textos de "Inicia sesión"
+  },
+  textoCuenta: {
+    fontSize: 16,
     color: 'black',
-    fontSize: 15,
-    fontWeight: 'bold',
-    borderBottomWidth: 1, 
-    borderBottomColor: 'black', 
-    marginBottom:150,
   },
-    TextoDelink: {
-      color: 'black',
-      fontSize: 16,
-      alignItems: 'center',
+  textLink: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
+    color: 'black',
   },
 });
 

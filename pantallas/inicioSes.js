@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Alert, StyleSheet, TouchableOpacity, Keyboard, TouchableWithoutFeedback, Platform } from 'react-native';
+import { View, Text, TextInput, Alert, StyleSheet, TouchableOpacity, KeyboardAvoidingView,Platform, ScrollView} from 'react-native';
 import Boton from '../componentes/boton';
 
-const LoginScreen = ({ navigation }) => {
+const InicioSes = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -16,111 +16,101 @@ const LoginScreen = ({ navigation }) => {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <KeyboardAvoidingView
+    behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+    style={{ flex: 1 }}
+    keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0} 
+    >
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+
       <View style={styles.container}>
         <View style={styles.content}>
-          <Text style={styles.titulo}>Inicio de Sesión</Text>
+          <Text style={styles.titulo}>Inicio de sesión</Text>
 
-          <Text style={styles.nom}>Email/Nombre de usuario</Text>
+          <Text style={styles.label}>Email / Nombre de usuario</Text>
           <TextInput
             style={styles.input}
             value={username}
             onChangeText={setUsername}
           />
 
-          <Text style={styles.contra}>Contraseña</Text>
+          <Text style={styles.label}>Contraseña</Text>
           <TextInput
-            style={styles.input1}
+            style={styles.input}
             value={password}
             onChangeText={setPassword}
             secureTextEntry
           />
-          <Text>{"\n"}</Text>
-          <Boton onPress={handleLogin} />
+
+          <Text style={styles.boton}>
+            <Boton onPress={handleLogin} title="Iniciar sesión" />
+          </Text>
         </View>
 
         <View style={styles.extraOptions}>
-          <TouchableOpacity onPress={() => navigation.navigate('cambiarContraseña')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Cambiar Contraseña')}>
             <Text style={styles.link}>¿Olvidaste tu contraseña?</Text>
           </TouchableOpacity>
-          <Text style={styles.link2}>¿No tienes cuenta aún?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Inicio')}>
-            <Text style={styles.link1}>Crear cuenta</Text>
+          <Text style={styles.link2}>¿No tenés cuenta aún?</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Registro')}>
+            <Text style={styles.link}>Crear cuenta</Text>
           </TouchableOpacity>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+      </ScrollView>
+       </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#93AE9F',
+    backgroundColor: '#f5f5dc', 
+    padding: 20,
   },
   content: {
     flex: 1,
-    padding: 25,
     justifyContent: 'center',
   },
   titulo: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 60,
+    marginBottom: 40,
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
   input: {
     height: 40,
     borderColor: 'black',
-    borderWidth: 2,
+    borderWidth: 1,
     paddingHorizontal: 10,
     borderRadius: 5,
-    marginTop: 90,
-  },
-  nom: {
-    top: 80,
-    fontWeight: 'bold',
-  },
-  input1: {
-    height: 40,
-    borderColor: 'black',
-    borderWidth: 2,
-    paddingHorizontal: 10,
-    borderRadius: 5,
-    marginTop: 80,
-  },
-  contra: {
-    top: 70,
-    fontWeight: 'bold',
+    marginBottom: 20,
+    backgroundColor: '#fff',
   },
   extraOptions: {
-    position: 'absolute',
-    bottom: 170,
-    left: 0,
-    right: 0,
     alignItems: 'center',
+    marginBottom: 40,
   },
   link: {
     color: 'black',
-    fontSize: 15,
-    marginTop: 10,
+    fontSize: 16,
     fontWeight: 'bold',
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
-  },
-  link1: {
-    color: 'black',
-    fontSize: 15,
+    textDecorationLine: 'underline',
     marginTop: 10,
-    fontWeight: 'bold',
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
   },
   link2: {
     color: 'black',
     fontSize: 16,
     marginTop: 10,
   },
+  boton:{
+    marginLeft: 130,
+  }
 });
 
-export default LoginScreen;
+export default InicioSes;
