@@ -7,62 +7,76 @@ const windowWidth = Dimensions.get('window').width;
 
 export default function  Yerbas(){
   const navigation = useNavigation();
-  let mates = [
+  let Yerbas = [
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Mate",
-      "precio": "$10"
+      "imagen": require("../imagenes/yerba1.jpeg"),
+      "nombre": "Canarias serena 500gr",
+      "precio": "$10",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Bombilla",
-      "precio": "$5"
+      "imagen": require("../imagenes/yerba2.jpeg"),
+      "nombre": "Rey verde elaborada con palo 500gr",
+      "precio": "$5",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Termo",
-      "precio": "$15"
+      "imagen": require("../imagenes/yerba3.jpeg"),
+      "nombre": "Canarias edición especial 500gr",
+      "precio": "$15",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Yerba",
-      "precio": "$8"
+      "imagen": require("../imagenes/yerba4.jpeg"),
+      "nombre": "Canarias 1Kg",
+      "precio": "$8",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Mate",
-      "precio": "$10"
+      "imagen": require("../imagenes/yerba5.jpeg"),
+      "nombre": "Sara 1Kg",
+      "precio": "$10",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Bombilla",
-      "precio": "$5"
+      "imagen": require("../imagenes/yerba6.jpeg"),
+      "nombre": "Sara extra suave 1Kg",
+      "precio": "$5",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Termo",
-      "precio": "$15"
+      "imagen": require("../imagenes/yerba7.jpeg"),
+      "nombre": "Baldo 1Kg",
+      "precio": "$15",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Yerba",
-      "precio": "$8"
+      "imagen": require("../imagenes/yerba8.jpeg"),
+      "nombre": "Rey verde tradicional 500gr",
+      "precio": "$8",
+      "pantalla": "Producto"
     }
   ];
   return (
     <ScrollView contentContainerStyle={styles.scrollView}>
       <View style={styles.grid}>
-      <Text style={styles.titulo}> Yerbas {'\n'} </Text>
-        {mates.map((mates, index) => (
-          <View key={index} style={styles.itemContainer}>
-          <Image source={mates.imagen} style={styles.image} />
-            <TouchableOpacity  onPress={() => navigation.navigate('Inicio')}>
-                <View style={styles.textContainer}>
-                  <Text style={styles.nombre}>{mates.nombre}</Text>
-                  <Text style={styles.precio}>{mates.precio}</Text>
-                </View>
-            </TouchableOpacity>
-          </View>
+        <Text style={styles.titulo}> Yerbas {'\n'} </Text>
+        {Yerbas.map((Yerbas, index) => (
+          <TouchableOpacity
+            key={index}
+            style={styles.itemContainer}
+            onPress={() => navigation.navigate(Yerbas.pantalla, {
+              imagen: Yerbas.imagen,
+              nombre: Yerbas.nombre,
+              precio: Yerbas.precio
+            })}
+          >
+            <Image source={Yerbas.imagen} style={styles.image} />
+            <View style={styles.textContainer}>
+              <Text style={styles.nombre}>{Yerbas.nombre}</Text>
+              <Text style={styles.precio}>{Yerbas.precio}</Text>
+            </View>
+          </TouchableOpacity>
         ))}
       </View>
     </ScrollView>
@@ -72,7 +86,7 @@ export default function  Yerbas(){
 const styles = StyleSheet.create({
   scrollView: {
     padding: 10, // Añadir un poco de padding alrededor de la cuadrícula
-    backgroundColor: '#93AE9F',
+    backgroundColor: '#f5f5dc',
   },
   titulo: {
     marginTop: 15,

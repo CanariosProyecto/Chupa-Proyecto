@@ -7,62 +7,76 @@ const windowWidth = Dimensions.get('window').width;
 
 export default function  Bombillas() {
   const navigation = useNavigation();
-  let mates = [
+  let Bombilla = [
     {
-      "imagen": require("../imagenes/bombillas.jpg"),
-      "nombre": "Mate",
-      "precio": "$10"
+      "imagen": require("../imagenes/bombilla1.jpeg"),
+      "nombre": "Bombilla de bronce",
+      "precio": "$15.000",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombillas.jpg"),
-      "nombre": "Bombilla",
-      "precio": "$5"
+      "imagen": require("../imagenes/bombilla2.jpeg"),
+      "nombre": "Bombilla pico de loro ",
+      "precio": "$5.000",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombillas.jpg"),
-      "nombre": "Termo",
-      "precio": "$15"
+      "imagen": require("../imagenes/bombilla3.jpeg"),
+      "nombre": "Bombilla de alpaca",
+      "precio": "$7.500",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombillas.jpg"),
-      "nombre": "Yerba",
-      "precio": "$8"
+      "imagen": require("../imagenes/bombilla4.jpeg"),
+      "nombre": "Bombilla de alpaca cincelada",
+      "precio": "$9.500",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombillas.jpg"),
-      "nombre": "Mate",
-      "precio": "$10"
+      "imagen": require("../imagenes/bombilla5.jpeg"),
+      "nombre": "Bombillón pico de rey",
+      "precio": "$20.000",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombillas.jpg"),
-      "nombre": "Bombilla",
-      "precio": "$5"
+      "imagen": require("../imagenes/bombilla6.jpeg"),
+      "nombre": "Bombilla alpaca pico de loro",
+      "precio": "$8.000",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombillas.jpg"),
-      "nombre": "Termo",
-      "precio": "$15"
+      "imagen": require("../imagenes/bombilla7.jpeg"),
+      "nombre": "Bombilla de alpaca y bronce",
+      "precio": "$23.500",
+      "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombillas.jpg"),
-      "nombre": "Yerba",
-      "precio": "$8"
+      "imagen": require("../imagenes/bombilla8.jpeg"),
+      "nombre": "Bombilla pico de loro virola fina",
+      "precio": "$4.500",
+      "pantalla": "Producto"
     }
   ];
   return (
     <ScrollView contentContainerStyle={styles.scrollView}>
       <View style={styles.grid}>
-      <Text style={styles.titulo}> Bombillas {'\n'} </Text>
-        {mates.map((mates, index) => (
-          <View key={index} style={styles.itemContainer}>
-          <Image source={mates.imagen} style={styles.image} />
-            <TouchableOpacity  onPress={() => navigation.navigate('Inicio')}>
-                <View style={styles.textContainer}>
-                  <Text style={styles.nombre}>{mates.nombre}</Text>
-                  <Text style={styles.precio}>{mates.precio}</Text>
-                </View>
-            </TouchableOpacity>
-          </View>
+        <Text style={styles.titulo}> Bombillas {'\n'} </Text>
+        {Bombilla.map((Bombilla, index) => (
+          <TouchableOpacity
+            key={index}
+            style={styles.itemContainer}
+            onPress={() => navigation.navigate(Bombilla.pantalla, {
+              imagen: Bombilla.imagen,
+              nombre: Bombilla.nombre,
+              precio: Bombilla.precio
+            })}
+          >
+            <Image source={Bombilla.imagen} style={styles.image} />
+            <View style={styles.textContainer}>
+              <Text style={styles.nombre}>{Bombilla.nombre}</Text>
+              <Text style={styles.precio}>{Bombilla.precio}</Text>
+            </View>
+          </TouchableOpacity>
         ))}
       </View>
     </ScrollView>
@@ -72,7 +86,7 @@ export default function  Bombillas() {
 const styles = StyleSheet.create({
   scrollView: {
     padding: 10, // Añadir un poco de padding alrededor de la cuadrícula
-    backgroundColor: '#93AE9F',
+    backgroundColor: '#f5f5dc',
   },
   titulo: {
     marginTop: 15,

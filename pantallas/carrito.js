@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const CarritoScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Aquí está tu Carrito de Compras</Text>
+      <Text style={styles.text}>Aquí está tu Carrito de compras</Text>
     </View>
   );
 };

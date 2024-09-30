@@ -61,7 +61,7 @@ export default function Inicio() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#93AE9F',
+    backgroundColor: '#f5f5dc',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   inicio: {
     flex: 1,
     marginTop: '50',
-    backgroundColor: '#93AE9F',
+    backgroundColor: '#f5f5dc',
     width: 400,
     borderRadius: 10,
     padding: 20,
@@ -80,17 +80,13 @@ const styles = StyleSheet.create({
     marginLeft: 37,
     fontSize: 35,
   },
-  boton: {
-    marginLeft: 140,
-    marginTop: 3 ,
-  },
   textoProducto: {
     fontSize: 20,
     color: 'white',
     marginTop: 10,
   },
   boton:{
-    marginLeft:150,
+    marginLeft:140,
     marginTop: 15,
   },
   imagen: {

@@ -1,124 +1,3 @@
-/*import React from 'react';
-import { View, Image, ScrollView, StyleSheet, Dimensions, Text, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-
-// Obtener las dimensiones de la pantalla
-const windowWidth = Dimensions.get('window').width;
-
-export default function  Mates() {
-  const navigation = useNavigation();
-  let mates = [
-    {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Mate",
-      "precio": "$10",
-      "pantalla": "Producto"
-    },
-    {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Bombilla",
-      "precio": "$5",
-      "pantalla": "Producto"
-    },
-    {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Termo",
-      "precio": "$15",
-      "pantalla": "Producto"
-    },
-    {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Yerba",
-      "precio": "$8",
-      "pantalla": "Producto"
-    },
-    {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Mate",
-      "precio": "$10",
-      "pantalla": "Producto"
-    },
-    {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Bombilla",
-      "precio": "$5",      
-      "pantalla": "Producto"
-    },
-    {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Termo",
-      "precio": "$15",
-      "pantalla": "Producto"
-    },
-    {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Yerba",
-      "precio": "$8",
-      "pantalla": "Producto"
-    }
-  ];
-  return (
-    <ScrollView contentContainerStyle={styles.scrollView}>
-      <View style={styles.grid}>
-      <Text style={styles.titulo}> Mates {'\n'} </Text>
-        {mates.map((mates, index) => (
-          <View key={index} style={styles.itemContainer}>
-          <Image source={mates.imagen} style={styles.image}/>
-              <View style={styles.textContainer}>
-                  <Text style={styles.nombre}>{mates.nombre}</Text>
-                  <Text style={styles.precio}>{mates.precio}</Text>
-                </View>
-          </View>
-        ))}
-      </View>
-    </ScrollView>
-  );
-}
-
-const styles = StyleSheet.create({
-  scrollView: {
-    padding: 10, // Añadir un poco de padding alrededor de la cuadrícula
-    backgroundColor: '#93AE9F',
-  },
-  titulo: {
-    marginTop: 15,
-    marginLeft: 140,
-    fontSize: 35,
-  },
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap', // Esto asegura que las imágenes se envuelvan en varias filas
-    justifyContent: 'space-between',
-  },
-  itemContainer: {
-    width: (windowWidth / 2) - 15, // Dos columnas, con un poco de margen
-    marginBottom: 20, // Separación entre los productos
-    alignItems: 'center', // Centrar los elementos dentro del contenedor
-  },
-  image: {
-    width: '100%',
-    height: (windowWidth / 2) - 15, // Hacerlas cuadradas
-    borderWidth: 2, // Grosor del borde
-    borderColor: '#2d572c', // Color verde del borde
-    borderRadius: 10, // Redondeado del borde (opcional)
-    overflow: 'hidden', // Asegurar que la imagen no salga de los bordes redondeados
-  },
-  textContainer: {
-    marginTop: 10, // Separación de 1 cm (aproximadamente 10px)
-  },
-  nombre: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'center', // Texto centrado
-  },
-  precio: {
-    fontSize: 14,
-    color: 'gray',
-    textAlign: 'center', // Texto centrado
-  },
-});*/
-
-
 import React from 'react';
 import { View, Image, ScrollView, StyleSheet, Dimensions, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -131,51 +10,51 @@ export default function Mates() {
   
   let mates = [
     {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Mate",
-      "precio": "$10",
+      "imagen": require("../imagenes/mate1.jpeg"),
+      "nombre": "Imperial virola lisa",
+      "precio": "$20.000",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Bombilla",
-      "precio": "$5",
+      "imagen": require("../imagenes/mate2.jpeg"),
+      "nombre": "Camionero uruguayo cuero negro",
+      "precio": "$13.500",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Termo",
-      "precio": "$15",
+      "imagen": require("../imagenes/mate3.jpeg"),
+      "nombre": "Torpedo cincelado",
+      "precio": "$35.000",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Yerba",
-      "precio": "$8",
+      "imagen": require("../imagenes/mate4.jpeg"),
+      "nombre": "Torpedo imperial con base de alpaca",
+      "precio": "$45.250",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Mate",
-      "precio": "$10",
+      "imagen": require("../imagenes/mate5.jpeg"),
+      "nombre": "Imperial liso",
+      "precio": "$20.000",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Bombilla",
-      "precio": "$5",      
+      "imagen": require("../imagenes/mate6.jpeg"),
+      "nombre": "Camionero uruguayo cuero marrón",
+      "precio": "$13.500",      
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Termo",
-      "precio": "$15",
+      "imagen": require("../imagenes/mate7.jpeg"),
+      "nombre": "Discovery acero inoxidable",
+      "precio": "$10.100",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/mates.jpg"),
-      "nombre": "Yerba",
-      "precio": "$8",
+      "imagen": require("../imagenes/mate8.jpeg"),
+      "nombre": "Stanley acero inoxidable",
+      "precio": "$30.650",
       "pantalla": "Producto"
     }
   ];
@@ -209,7 +88,7 @@ export default function Mates() {
 const styles = StyleSheet.create({
   scrollView: {
     padding: 10,
-    backgroundColor: '#93AE9F',
+    backgroundColor: '#f5f5dc',
   },
   titulo: {
     marginTop: 15,

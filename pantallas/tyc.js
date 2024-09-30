@@ -3,18 +3,6 @@ import { View, Text, TextInput, Alert, StyleSheet, TouchableOpacity, KeyboardAvo
 import Boton from '../componentes/boton';
 
 const InicioSes = ({ navigation }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
-    if (username === '' || password === '') {
-      Alert.alert('Error', 'Por favor, completa todos los campos.');
-    } else {
-      Alert.alert('Éxito', '¡Inicio de sesión exitoso!');
-      navigation.navigate('Main'); // Navega a la pantalla principal con pestañas
-    }
-  };
-
   return (
     <KeyboardAvoidingView
     behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -25,36 +13,10 @@ const InicioSes = ({ navigation }) => {
 
       <View style={styles.container}>
         <View style={styles.content}>
-          <Text style={styles.titulo}>Inicio de sesión</Text>
+          <Text style={styles.titulo}>Terminos y condiciones </Text>
 
           <Text style={styles.label}>Email / Nombre de usuario</Text>
-          <TextInput
-            style={styles.input}
-            value={username}
-            onChangeText={setUsername}
-          />
-
-          <Text style={styles.label}>Contraseña</Text>
-          <TextInput
-            style={styles.input}
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-          />
-
-          <Text style={styles.boton}>
-            <Boton onPress={handleLogin} title="Iniciar sesión" />
-          </Text>
-        </View>
-
-        <View style={styles.extraOptions}>
-          <TouchableOpacity onPress={() => navigation.navigate('Cambiar Contraseña')}>
-            <Text style={styles.link}>¿Olvidaste tu contraseña?</Text>
-          </TouchableOpacity>
-          <Text style={styles.link2}>¿No tenés cuenta aún?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Registro')}>
-            <Text style={styles.link}>Crear cuenta</Text>
-          </TouchableOpacity>
+          
         </View>
       </View>
       </ScrollView>
