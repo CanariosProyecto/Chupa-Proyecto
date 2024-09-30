@@ -9,58 +9,58 @@ export default function  Termos() {
   const navigation = useNavigation();
   let termos = [
     {
-      "imagen": require("../imagenes/termos.jpeg"),
-      "nombre": "Mate",
-      "precio": "$10",
+      "imagen": require("../imagenes/termo1.jpg"),
+      "nombre": "Stanley 1.25L",
+      "precio": "$42.000",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termos.jpeg"),
-      "nombre": "Bombilla",
-      "precio": "$5",
+      "imagen": require("../imagenes/termo2.jpg"),
+      "nombre": "Acero inoxidable 1.25L",
+      "precio": "$17.500",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termos.jpeg"),
-      "nombre": "Termo",
-      "precio": "$15",
+      "imagen": require("../imagenes/termo3.jpeg"),
+      "nombre": "Media manija acero 1L",
+      "precio": "$28.300",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termos.jpeg"),
-      "nombre": "Yerba",
+      "imagen": require("../imagenes/termo4.jpg"),
+      "nombre": "Discovery 1L",
       "precio": "$8",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termos.jpeg"),
-      "nombre": "Mate",
-      "precio": "$10",
+      "imagen": require("../imagenes/termo5.jpeg"),
+      "nombre": "Stanley blanco 1L",
+      "precio": "$52.200",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termos.jpeg"),
-      "nombre": "Bombilla",
-      "precio": "$5",
+      "imagen": require("../imagenes/termo6.jpeg"),
+      "nombre": "Media manija negro 1L",
+      "precio": "$28.300",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termos.jpeg"),
-      "nombre": "Termo",
-      "precio": "$15",
+      "imagen": require("../imagenes/termo7.jpeg"),
+      "nombre": "Stanley rosa 1.4L",
+      "precio": "$50.800",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termos.jpeg"),
-      "nombre": "Yerba",
-      "precio": "$8",
+      "imagen": require("../imagenes/termo8.jpeg"),
+      "nombre": "Stanley azul metalizado 1.3L",
+      "precio": "$79.500",
       "pantalla": "Producto"
     }
   ];
   return (
     <ScrollView contentContainerStyle={styles.scrollView}>
       <View style={styles.grid}>
-        <Text style={styles.titulo}> Mates {'\n'} </Text>
+        <Text style={styles.titulo}> Termos {'\n'} </Text>
         {termos.map((termos, index) => (
           <TouchableOpacity
             key={index}

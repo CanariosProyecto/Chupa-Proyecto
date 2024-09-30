@@ -9,50 +9,50 @@ export default function  Yerbas(){
   const navigation = useNavigation();
   let Yerbas = [
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Mate",
+      "imagen": require("../imagenes/yerba1.jpeg"),
+      "nombre": "Canarias serena 500gr",
       "precio": "$10",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Bombilla",
+      "imagen": require("../imagenes/yerba2.jpeg"),
+      "nombre": "Rey verde elaborada con palo 500gr",
       "precio": "$5",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Termo",
+      "imagen": require("../imagenes/yerba3.jpeg"),
+      "nombre": "Canarias edición especial 500gr",
       "precio": "$15",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Yerba",
+      "imagen": require("../imagenes/yerba4.jpeg"),
+      "nombre": "Canarias 1Kg",
       "precio": "$8",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Mate",
+      "imagen": require("../imagenes/yerba5.jpeg"),
+      "nombre": "Sara 1Kg",
       "precio": "$10",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Bombilla",
+      "imagen": require("../imagenes/yerba6.jpeg"),
+      "nombre": "Sara extra suave 1Kg",
       "precio": "$5",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Termo",
+      "imagen": require("../imagenes/yerba7.jpeg"),
+      "nombre": "Baldo 1Kg",
       "precio": "$15",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/yerbas.jpg"),
-      "nombre": "Yerba",
+      "imagen": require("../imagenes/yerba8.jpeg"),
+      "nombre": "Rey verde tradicional 500gr",
       "precio": "$8",
       "pantalla": "Producto"
     }
