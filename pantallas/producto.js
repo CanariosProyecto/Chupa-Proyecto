@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const CarritoScreen = () => {
+const Producto = () => {
+  let producto = {
+    nombre: "pepito"
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Aquí está tu detalle del producto</Text>

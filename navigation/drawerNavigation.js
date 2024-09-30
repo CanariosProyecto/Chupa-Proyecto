@@ -103,7 +103,7 @@ export default function DrawerNavigation() {
                 <Icon name="search-outline" size={25} color="#fff" style={{ marginRight: 15 }} />
               </TouchableOpacity>
               {/* Icono de Persona */}
-              <TouchableOpacity onPress={() => alert('Perfil!')}>
+              <TouchableOpacity onPress={() => navigation.navigate("Registro")}>
                 <Icon name="person-outline" size={25} color="#fff" />
               </TouchableOpacity>
             </View>
