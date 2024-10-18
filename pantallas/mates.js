@@ -7,55 +7,47 @@ const windowWidth = Dimensions.get('window').width;
 
 export default function Mates() {
   const navigation = useNavigation();
-  
-  let mates = [
+
+  let pmates = [
     {
       "imagen": require("../imagenes/mate1.jpeg"),
       "nombre": "Imperial virola lisa",
       "precio": "$20.000",
-      "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/mate2.jpeg"),
       "nombre": "Camionero uruguayo cuero negro",
       "precio": "$13.500",
-      "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/mate3.jpeg"),
       "nombre": "Torpedo cincelado",
       "precio": "$35.000",
-      "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/mate4.jpeg"),
       "nombre": "Torpedo imperial con base de alpaca",
       "precio": "$45.250",
-      "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/mate5.jpeg"),
       "nombre": "Imperial liso",
       "precio": "$20.000",
-      "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/mate6.jpeg"),
       "nombre": "Camionero uruguayo cuero marrón",
-      "precio": "$13.500",      
-      "pantalla": "Producto"
+      "precio": "$13.500",
     },
     {
       "imagen": require("../imagenes/mate7.jpeg"),
       "nombre": "Discovery acero inoxidable",
       "precio": "$10.100",
-      "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/mate8.jpeg"),
       "nombre": "Stanley acero inoxidable",
       "precio": "$30.650",
-      "pantalla": "Producto"
     }
   ];
 
@@ -63,15 +55,25 @@ export default function Mates() {
     <ScrollView contentContainerStyle={styles.scrollView}>
       <View style={styles.grid}>
         <Text style={styles.titulo}> Mates {'\n'} </Text>
-        {mates.map((mate, index) => (
+        {pmates.map((mate, index) => (
           <TouchableOpacity
             key={index}
             style={styles.itemContainer}
-            onPress={() => navigation.navigate(mate.pantalla, {
-              imagen: mate.imagen,
-              nombre: mate.nombre,
-              precio: mate.precio
-            })}
+            onPress={() => {
+              console.log("parametros:", mate);
+              navigation.navigate("Inicio", {
+                screen: "Mates",
+                params: {
+                  screen: "Producto",
+                  params: {
+                    imagen: mate.imagen,
+                    nombre: mate.nombre,
+                    precio: mate.precio
+                  }
+                }
+              });
+
+            }}
           >
             <Image source={mate.imagen} style={styles.image} />
             <View style={styles.textContainer}>
@@ -83,6 +85,7 @@ export default function Mates() {
       </View>
     </ScrollView>
   );
+
 }
 
 const styles = StyleSheet.create({

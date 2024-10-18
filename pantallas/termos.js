@@ -10,50 +10,50 @@ export default function  Termos() {
   let termos = [
     {
       "imagen": require("../imagenes/termo1.jpg"),
-      "nombre": "Stanley 1.25L",
-      "precio": "$42.000",
+      "nombre": "Termo media manija nobel home plateado ",
+      "precio": "$29.000,00",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termo2.jpg"),
-      "nombre": "Acero inoxidable 1.25L",
-      "precio": "$17.500",
+      "imagen": require("../imagenes/termo2.webp"),
+      "nombre": "Termolar r-evolution plomo",
+      "precio": "$83.000,00",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termo3.jpeg"),
-      "nombre": "Media manija acero 1L",
-      "precio": "$28.300",
+      "imagen": require("../imagenes/termo3.webp"),
+      "nombre": "Stanley adventure to-go blanco 1L",
+      "precio": "$135.000,00",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termo4.jpg"),
-      "nombre": "Discovery 1L",
-      "precio": "$8",
+      "imagen": require("../imagenes/termo4.webp"),
+      "nombre": "Stanley matesystem 800ml maple",
+      "precio": "$149.000,00",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termo5.jpeg"),
-      "nombre": "Stanley blanco 1L",
-      "precio": "$52.200",
+      "imagen": require("../imagenes/termo5.webp"),
+      "nombre": "Stanley classic 950ml negro ",
+      "precio": "$140.000,00",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termo6.jpeg"),
-      "nombre": "Media manija negro 1L",
-      "precio": "$28.300",
+      "imagen": require("../imagenes/termo6.webp"),
+      "nombre": "Stanley classic 950 lake",
+      "precio": "$140.000,00",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termo7.jpeg"),
-      "nombre": "Stanley rosa 1.4L",
-      "precio": "$50.800",
+      "imagen": require("../imagenes/termo7.webp"),
+      "nombre": "Termolar r-evolution bronce",
+      "precio": " $83.000,00",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termo8.jpeg"),
-      "nombre": "Stanley azul metalizado 1.3L",
-      "precio": "$79.500",
+      "imagen": require("../imagenes/termo8.webp"),
+      "nombre": "Termolar r-evolution negro click mate ",
+      "precio": "$83.000,00",
       "pantalla": "Producto"
     }
   ];
@@ -65,7 +65,7 @@ export default function  Termos() {
           <TouchableOpacity
             key={index}
             style={styles.itemContainer}
-            onPress={() => navigation.navigate(termos.pantalla, {
+            onPress={() => navigation.navigate("Producto", {
               imagen: termos.imagen,
               nombre: termos.nombre,
               precio: termos.precio
@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: (windowWidth / 2) - 15, // Hacerlas cuadradas
-    borderWidth: 2, // Grosor del borde
-    borderColor: '#2d572c', // Color verde del borde
+    borderWidth: 2,
+    borderColor: '#2d572c',
     borderRadius: 10, // Redondeado del borde (opcional)
     overflow: 'hidden', // Asegurar que la imagen no salga de los bordes redondeados
   },
