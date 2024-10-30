@@ -2,9 +2,10 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Boton from "/CANARIOS/Chupa-Proyecto/componentes/boton";
+import Boton from "/canario/Chupa-Proyecto/componentes/boton";
 
 export default function DetalleProducto({ navigation }) {
+  
   const [cantidad, setCantidad] = React.useState('1');
 
   const handleAgregarAlCarrito = () => {
