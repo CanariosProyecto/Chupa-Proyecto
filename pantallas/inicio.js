@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import {StyleSheet, Text, View, Image, TouchableOpacity, Button } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Boton from '/canario/Chupa-Proyecto/componentes/boton';
+
 import { useNavigation } from '@react-navigation/native';
 
 

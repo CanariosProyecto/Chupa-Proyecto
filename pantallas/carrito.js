@@ -125,7 +125,7 @@ const CarritoScreen = ({ navigation }) => {
     </View>
   );
 };
-
+// frgtr
 const styles = StyleSheet.create({
   container: {
     flex: 1,
