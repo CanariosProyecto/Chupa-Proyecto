@@ -36,7 +36,7 @@ export default function Inicio() {
         {productos.map((item, index) => (
           <View key={index} style={styles.producto}>
             <View style={styles.imagen}> 
-            <TouchableOpacity onPress={() => navigation.navigate(item.pantalla)}> 
+            <TouchableOpacity onPress={() => navigation.navigate('Productos' , { item })}> 
                 <Image
                   source={item.imagen}
                   resizeMode="contain"

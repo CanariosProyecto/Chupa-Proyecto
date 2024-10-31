@@ -18,6 +18,7 @@ import Bombillas from '../pantallas/bombillas';
 import Yerbas from '../pantallas/yerbas';
 import Producto from '../pantallas/producto';
 import TerminosyCondiciones from '../pantallas/tyc';
+import Productos from '../pantallas/productos';
 
 
 
@@ -175,6 +176,11 @@ export default function DrawerNavigation() {
         name="TerminosyCondiciones"
         component={createTabs(TerminosyCondiciones)} // Tabs personalizados para la pantalla de Mates
         options={{ drawerLabel: 'TerminosyCondiciones' }}
+      />
+      <Drawer.Screen
+        name="Productos"
+        component={createTabs(Productos)} // Tabs personalizados para la pantalla de Mates
+        options={{ drawerLabel: 'Productos' }}
       />
       </Drawer.Navigator>
     </NavigationContainer>
