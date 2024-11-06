@@ -42,9 +42,9 @@ const InicioSes = ({ navigation }) => {
             secureTextEntry
           />
 
-          <Text style={styles.boton}>
-            <Boton onPress={handleLogin} title="Iniciar sesión" />
-          </Text>
+          <TouchableOpacity style={styles.boton} >
+            <Text style={styles.buttonText}>Iniciar sesión</Text>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.extraOptions}>
@@ -84,13 +84,11 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   input: {
-    height: 40,
-    borderColor: 'black',
     borderWidth: 1,
-    paddingHorizontal: 10,
-    borderRadius: 5,
-    marginBottom: 20,
-    backgroundColor: '#fff',
+      borderColor: '#000',
+      padding: 10,
+      borderRadius: 5,
+      marginBottom: 10,
   },
   extraOptions: {
     alignItems: 'center',
@@ -109,7 +107,19 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   boton:{
-    marginLeft: 130,
+    backgroundColor: '#000',
+    padding: 15,
+    borderRadius: 5,
+    alignItems: 'center',
+    marginBottom: 10,
+    width:200,
+    marginLeft:80,
+    marginTop:30
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   }
 });
 

@@ -1,25 +1,15 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Dimensions, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Boton from '/CANARIOS/Chupa-Proyecto/componentes/boton';
 
 const windowWidth = Dimensions.get('window').width;
 
-export default function DetalleProducto({ navigation, route }) {
-  
-  console.log("DetalleProducto mounted");
-  console.log("route:", route);
-  console.log("route.params:", route.params);
-
-  const { imagen, nombre, precio } = route.params; 
+export default function DetalleProducto({ navigation }) {
   const [cantidad, setCantidad] = React.useState('1');
 
-  const handleAgregarAlCarrito = () => {
-    navigation.navigate('Carrito');
-  };
-
   return (
+    
     <View style={styles.container}>
       <View style={styles.breadcrumb}>
         <Text style={styles.breadcrumbText}>Productos</Text>
@@ -29,9 +19,9 @@ export default function DetalleProducto({ navigation, route }) {
         <Image source={""} style={styles.image} />
       </View>
 
-      <Text style={styles.productTitle}>{nombre}</Text>
-      <Text style={styles.productPrice}>{precio}</Text>
-      <Text style={styles.productTransferPrice}>$54.000 por transferencia</Text>
+      <Text style={styles.productTitle}>Nombre</Text>
+      <Text style={styles.productPrice}>Precio</Text>
+      <Text style={styles.productTransferPrice}>$--.--- por transferencia</Text>
       <Text style={styles.productInstallments}>
         Hasta 3 cuotas SIN interés con tarjeta de débito
       </Text>
@@ -46,24 +36,45 @@ export default function DetalleProducto({ navigation, route }) {
           keyboardType="numeric"
           onChangeText={setCantidad}
         />
-        <Boton title="AGREGAR AL CARRITO" onPress={handleAgregarAlCarrito} />
+        <TouchableOpacity style={styles.botonCompra} onPress={()=>navigation.navigate('Carrito')}>
+          <Text style={styles.botonTexto} >Agregar al carrito</Text>
+        </TouchableOpacity>
       </View>
 
-      <Text style={styles.agregadoText}>✓ Ya agregaste este producto.Ver carrito</Text>
+      <TouchableOpacity onPress={()=>navigation.navigate('Carrito')}>
+        <Text style={styles.agregadoText}>Ya agregaste este producto. Ver carrito</Text>
+      </TouchableOpacity>
 
       <View style={styles.paymentMethodsContainer}>
-        <Text style={styles.sectionTitle}>Medios de pago</Text>
+        <TouchableOpacity onPress={()=>navigation.navigate('pago')}> 
+          <Text style={styles.sectionTitle}>Medios de pago</Text>
+        </TouchableOpacity>
+        
         <View style={styles.paymentIconsContainer}>
-          <Icon name="card-outline" style={styles.paymentIcon} />
-          <Icon name="logo-paypal" style={styles.paymentIcon} />
+          <TouchableOpacity onPress={()=>navigation.navigate('pago')}> 
+            <Icon name="card-outline" style={styles.paymentIcon} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate('pago')}> 
+            <Icon name="card-outline" style={styles.paymentIcon} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate('pago')}> 
+            <Icon name="card-outline" style={styles.paymentIcon} />
+          </TouchableOpacity>
         </View>
       </View>
 
       <View style={styles.shippingMethodsContainer}>
-        <Text style={styles.sectionTitle}>Medios de envío</Text>
+        <TouchableOpacity onPress={()=>navigation.navigate('pago')}> 
+          <Text style={styles.sectionTitle}>Medios de envio</Text>
+        </TouchableOpacity>
+        
         <View style={styles.shippingIconsContainer}>
-          <Icon name="cube-outline" style={styles.shippingIcon} />
-          <Icon name="car-outline" style={styles.shippingIcon} />
+          <TouchableOpacity onPress={()=>navigation.navigate('pago')}> 
+            <Icon name="cube-outline" style={styles.shippingIcon} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate('pago')}> 
+            <Icon name="cube-outline" style={styles.shippingIcon} />
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -76,14 +87,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5dc',
-    padding: 10,
+    padding: 35,
   },
   breadcrumb: {
     marginBottom: 10,
   },
   breadcrumbText: {
-    color: '#000',
-    fontSize: 14,
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+    color:'#000'
   },
   image: {
     width: 200,
@@ -142,7 +156,7 @@ const styles = StyleSheet.create({
   agregadoText: {
     fontSize: 14,
     color: '#2d572c',
-    marginBottom: 20,
+    marginBottom: 20, 
   },
   paymentMethodsContainer: {
     marginBottom: 20,
@@ -154,7 +168,6 @@ const styles = StyleSheet.create({
   },
   paymentIconsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
   },
   paymentIcon: {
     fontSize: 30,
@@ -165,7 +178,6 @@ const styles = StyleSheet.create({
   },
   shippingIconsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
   },
   shippingIcon: {
     fontSize: 30,
@@ -176,5 +188,17 @@ const styles = StyleSheet.create({
     color: 'red',
     textAlign: 'center',
     marginTop: 20,
+  },
+  botonCompra: {
+    borderWidth: 1,
+      borderColor: '#000',
+      padding: 10,
+      borderRadius: 5,
+      marginBottom: 10,
+      marginBottom:1
+  },
+  botonTexto: {
+    color: '#000',
+    fontWeight: 'bold',
   },
 });

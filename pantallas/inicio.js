@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import {StyleSheet, Text, View, Image, TouchableOpacity, Button } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Boton from '/CANARIOS/Chupa-Proyecto/componentes/boton';
+
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -36,7 +37,7 @@ export default function Inicio() {
         {productos.map((item, index) => (
           <View key={index} style={styles.producto}>
             <View style={styles.imagen}> 
-            <TouchableOpacity onPress={() => navigation.navigate('Productos' , { item })}> 
+            <TouchableOpacity onPress={() => navigation.navigate(item.pantalla)}> 
                 <Image
                   source={item.imagen}
                   resizeMode="contain"

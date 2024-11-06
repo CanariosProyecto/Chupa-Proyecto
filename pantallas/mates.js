@@ -8,46 +8,62 @@ const windowWidth = Dimensions.get('window').width;
 export default function Mates() {
   const navigation = useNavigation();
 
-  let pmates = [
+  let mates = [
     {
-      "imagen": require("../imagenes/mate1.jpeg"),
+      "imagen": require("../imagenes/mate1.jpg"),
       "nombre": "Imperial virola lisa",
       "precio": "$20.000",
+      "pantalla": "Producto"
+
     },
     {
-      "imagen": require("../imagenes/mate2.jpeg"),
+      "imagen": require("../imagenes/mate2.jpg"),
       "nombre": "Camionero uruguayo cuero negro",
       "precio": "$13.500",
+      "pantalla": "Producto"
+
     },
     {
-      "imagen": require("../imagenes/mate3.jpeg"),
+      "imagen": require("../imagenes/mate3.jpg"),
       "nombre": "Torpedo cincelado",
       "precio": "$35.000",
+      "pantalla": "Producto"
+
     },
     {
-      "imagen": require("../imagenes/mate4.jpeg"),
+      "imagen": require("../imagenes/mate4.jpg"),
       "nombre": "Torpedo imperial con base de alpaca",
       "precio": "$45.250",
+      "pantalla": "Producto"
+
     },
     {
-      "imagen": require("../imagenes/mate5.jpeg"),
+      "imagen": require("../imagenes/mate5.jpg"),
       "nombre": "Imperial liso",
       "precio": "$20.000",
+      "pantalla": "Producto"
+
     },
     {
-      "imagen": require("../imagenes/mate6.jpeg"),
+      "imagen": require("../imagenes/mate6.jpg"),
       "nombre": "Camionero uruguayo cuero marrón",
       "precio": "$13.500",
+      "pantalla": "Producto"
+
     },
     {
-      "imagen": require("../imagenes/mate7.jpeg"),
+      "imagen": require("../imagenes/mate7.jpg"),
       "nombre": "Discovery acero inoxidable",
       "precio": "$10.100",
+      "pantalla": "Producto"
+
     },
     {
-      "imagen": require("../imagenes/mate8.jpeg"),
+      "imagen": require("../imagenes/mate8.jpg"),
       "nombre": "Stanley acero inoxidable",
       "precio": "$30.650",
+      "pantalla": "Producto"
+
     }
   ];
 
@@ -55,24 +71,17 @@ export default function Mates() {
     <ScrollView contentContainerStyle={styles.scrollView}>
       <View style={styles.grid}>
         <Text style={styles.titulo}> Mates {'\n'} </Text>
-        {pmates.map((mate, index) => (
+        {mates.map((mate, index) => (
           <TouchableOpacity
             key={index}
             style={styles.itemContainer}
             onPress={() => {
-              console.log("parametros:", mate);
-              navigation.navigate("Inicio", {
-                screen: "Mates",
-                params: {
-                  screen: "Producto",
-                  params: {
+              navigation.navigate(mate.pantalla, {
                     imagen: mate.imagen,
                     nombre: mate.nombre,
                     precio: mate.precio
-                  }
-                }
               });
-
+              
             }}
           >
             <Image source={mate.imagen} style={styles.image} />

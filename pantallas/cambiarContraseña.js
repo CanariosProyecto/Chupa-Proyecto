@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView,Platform, ScrollView} from 'react-native';
-import Boton from '../componentes/boton';
+import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView,Platform, ScrollView, TouchableOpacity} from 'react-native';
 
 const CambiarContraseña = ({ navigation }) => {
-  const [username, setUsername] = useState('');
+  const [contraseña, setContraseña] = useState('');
 
   const handleLogin = () => {
     if (username === '') {
@@ -28,12 +27,15 @@ const CambiarContraseña = ({ navigation }) => {
           <Text style={styles.label}>Email </Text>
           <TextInput
             style={styles.input}
-            value={username}
-            onChangeText={setUsername}
+            value={contraseña}
+            onChangeText={setContraseña}
+            placeholder={"Ej: apellido.nombre@gmail.com"}
           />
-          <Text style={styles.boton}>
-            <Boton onPress={handleLogin} />
-          </Text>
+          
+          <TouchableOpacity style={styles.boton} >
+            <Text style={styles.buttonText}>Enviar</Text>
+          </TouchableOpacity>
+          
         </View>
       </View>
       </ScrollView>
@@ -63,19 +65,29 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   input: {
-    height: 40,
-    borderColor: 'black',
     borderWidth: 1,
-    paddingHorizontal: 10,
-    borderRadius: 5,
-    marginBottom: 20,
-    backgroundColor: '#fff',
+      borderColor: '#000',
+      padding: 10,
+      borderRadius: 5,
+      marginBottom: 10,
   },
   boton:{
-    marginLeft: 130,
+    backgroundColor: '#000',
+    padding: 15,
+    borderRadius: 5,
+    alignItems: 'center',
+    marginBottom: 10,
+    width:200,
+    marginLeft:80,
+    marginTop:30
   },
   text:{
     fontSize: 16,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   }
 });
 
