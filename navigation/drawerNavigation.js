@@ -22,6 +22,8 @@ import Envio from "../pantallas/envio"
 import Pago from "../pantallas/pago"
 import infoPersonal from '../pantallas/infoPersonal';
 import preguntas from "../pantallas/preguntas"
+import micuentainfo from '../pantallas/micuentainfo';
+
 
 // Crear los navegadores
 const Drawer = createDrawerNavigator();
@@ -173,6 +175,11 @@ export default function DrawerNavigation() {
           name="Termos"
           component={createTabs(Termos)} // Tabs personalizados para la pantalla de Mates
           options={{ drawerLabel: 'Termos' }}
+        />
+        <Drawer.Screen
+          name="Micuentaprueba"
+          component={createTabs(micuentainfo)} // Tabs personalizados para la pantalla de Mates
+          options={{ drawerLabel: 'micuentainfo' }}
         />
         <Drawer.Screen
           name="Bombillas"
