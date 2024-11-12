@@ -7,18 +7,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const Pago = ({navigation}) => {
   
   const [isDetalleVisible, setIsDetalleVisible] = useState(false); // Estado para el detalle de la compra
-  const [isCuponVisible, setIsCuponVisible] = useState(false); // cupon
   const [isTransferenciaVisible, setIsTransferenciaVisible] = useState(false); // tranferencia
   const [isEfectivoVisible, setIsEfectivoVisible] = useState(false); // efectivo
   const [isTarjetaVisible, setIsTarjetaVisible] = useState(false); // efectivo
 
 
-
   const toggleDetalleVisibility = ({ navigation }) => {
     setIsDetalleVisible(!isDetalleVisible);
-  };
-  const toggleCuponVisibility = () => {
-    setIsCuponVisible(!isCuponVisible);
   };
   const toggleTransferenciaVisibility = () => {
     setIsTransferenciaVisible(!isTransferenciaVisible);
@@ -92,25 +87,7 @@ const [selectedButton, setSelectedButton] = useState(null);
        <Icon name="card-outline" size={25} color="#000" style={{ marginLeft: 2 }} />
      </View>
    </View>
-      {/* CUPON  */}
-      <View style={styles.detalleContainer}>
-          <View style={styles.detalleHeader}>
-             <Text style={styles.detalleTitulo}>Agregar cupón de descuento</Text>
-             <TouchableOpacity onPress={toggleCuponVisibility}>
-              <Text style={styles.toggleButton}>{isCuponVisible ? '-' : '+'}</Text>
-            </TouchableOpacity>
-         </View>
-        {isCuponVisible && (
-        <View style={styles.detalleContenido}>
-          <View style={styles.discountContainer}>
-          <TextInput 
-            style={styles.discountInput} 
-           placeholder="Código de descuento" />
-      </View>
-        </View>
-        )}
-      </View>
-        {/*fin cupon */}
+      
         <View style={styles.itemContainer}>
             <View style={styles.itemRow}>
                <Icon name="mail-outline" size={25} color="#000" style={styles.icon} />

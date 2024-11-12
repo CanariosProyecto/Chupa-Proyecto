@@ -2,6 +2,58 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+/* cupon 
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getDoc, doc } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDgoeIdygroE380AttLZZRwBH1cBYtCoV4",
+  authDomain: "bdcanarios.firebaseapp.com",
+  projectId: "bdcanarios",
+  storageBucket: "bdcanarios.firebasestorage.app",
+  messagingSenderId: "376141543054",
+  appId: "1:376141543054:web:7bd8b193c87f9ef8a67bdf"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Función para añadir un cupón
+async function agregarCupon(codigo, descuento, vigencia) {
+  try {
+    const docRef = await addDoc(collection(db, "cupones"), {
+      codigo: codigo,
+      descuento: descuento,
+      vigencia: vigencia,
+      activo: true
+    });
+    console.log("Cupón añadido con ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error añadiendo el cupón: ", e);
+  }
+}
+
+// Llama a la función con los datos del cupón
+agregarCupon("DESC20", 20, "2024-12-31");
+
+async function validarCupon(codigo) {
+  const docRef = doc(db, "cupones", codigo);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    const cupon = docSnap.data();
+    if (cupon.activo && new Date(cupon.vigencia) > new Date()) {
+      console.log("Cupón válido: ", cupon);
+      return cupon.descuento;
+    } else {
+      console.log("Cupón no válido o expirado.");
+    }
+  } else {
+    console.log("No se encontró el cupón.");
+  }
+}*/
+
 
 const CarritoScreen = ({ navigation }) => {
   // manejar la cantidad de productos
@@ -9,6 +61,7 @@ const CarritoScreen = ({ navigation }) => {
   const [codigoPostal, setCodigoPostal] = useState('');
   const [total, setTotal] = useState(60000);
   const [isEnvioVisible, setIsEnvioVisible] = useState(false); // Estado para mostrar/ocultar el envío
+  const [isCuponVisible, setIsCuponVisible] = useState(false); // cupon
 
   // aumentar la cantidad
   const aumentarCantidad = () => {
@@ -44,6 +97,11 @@ const CarritoScreen = ({ navigation }) => {
   const toggleEnvioVisibility = () => {
     setIsEnvioVisible(!isEnvioVisible);
   };
+  
+  const toggleCuponVisibility = () => {
+    setIsCuponVisible(!isCuponVisible);
+  };
+
 
   return (
     <View style={styles.container}>
@@ -69,7 +127,25 @@ const CarritoScreen = ({ navigation }) => {
 
         <Text style={styles.precioTexto}>${(cantidad * 60000).toLocaleString()}</Text>
       </View>
-
+      {/* CUPON  */}
+      <View style={styles.detalleContainer}>
+                <View style={styles.detalleHeader}>
+                   <Text style={styles.detalleTitulo}>Agregar cupón de descuento</Text>
+                   <TouchableOpacity onPress={toggleCuponVisibility}>
+                    <Text style={styles.toggleButton}>{isCuponVisible ? '-' : '+'}</Text>
+                  </TouchableOpacity>
+               </View>
+              {isCuponVisible && (
+              <View style={styles.detalleContenido}>
+                <View style={styles.discountContainer}>
+                <TextInput 
+                  style={styles.discountInput} 
+                 placeholder="Código de descuento" />
+            </View>
+              </View>
+              )}
+            </View>
+              {/*fin cupon */}
       {/* Subtotal y cálculo de envío */}
       <Text style={styles.subtotalTexto}>Subtotal (sin envío): ${(total).toLocaleString()}</Text>
 
@@ -238,6 +314,23 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginVertical: 10,
+  },
+  detalleContainer: {
+    marginBottom: 20,
+  },
+  detalleHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  detalleTitulo: {
+    fontSize: 18,
+  },
+  discountInput: {
+    borderWidth: 1,
+    borderColor: '#000',
+    padding: 10,
+    borderRadius: 5,
   },
 });
 

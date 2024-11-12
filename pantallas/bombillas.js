@@ -9,7 +9,7 @@ export default function  Bombillas() {
   const navigation = useNavigation();
   let Bombilla = [
     {
-      "imagen": require("../imagenes/bombilla1.jpeg"),
+      "imagen": require("../imagenes/bombilla.prueba.jpg"),
       "nombre": "Bombilla de bronce",
       "precio": "$15.000",
       "pantalla": "Producto"

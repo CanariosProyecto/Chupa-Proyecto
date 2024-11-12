@@ -18,49 +18,49 @@ export default function Mates() {
     },
     {
       "imagen": require("../imagenes/mate2.jpg"),
-      "nombre": "Camionero uruguayo cuero negro",
-      "precio": "$13.500",
+      "nombre": "Imperial deluxe crocco",
+      "precio": "$34.600",
       "pantalla": "Producto"
 
     },
     {
       "imagen": require("../imagenes/mate3.jpg"),
-      "nombre": "Torpedo cincelado",
+      "nombre": "Torpedo calabaza",
       "precio": "$35.000",
       "pantalla": "Producto"
 
     },
     {
       "imagen": require("../imagenes/mate4.jpg"),
-      "nombre": "Torpedo imperial con base de alpaca",
+      "nombre": "Torpedo con base de cuero",
       "precio": "$45.250",
       "pantalla": "Producto"
 
     },
     {
       "imagen": require("../imagenes/mate5.jpg"),
-      "nombre": "Imperial liso",
+      "nombre": "Camionero de cuero negro",
       "precio": "$20.000",
       "pantalla": "Producto"
 
     },
     {
       "imagen": require("../imagenes/mate6.jpg"),
-      "nombre": "Camionero uruguayo cuero marrón",
+      "nombre": "Camionero cuero blanco",
       "precio": "$13.500",
       "pantalla": "Producto"
 
     },
     {
       "imagen": require("../imagenes/mate7.jpg"),
-      "nombre": "Discovery acero inoxidable",
+      "nombre": "Imperial con base de alpaca",
       "precio": "$10.100",
       "pantalla": "Producto"
 
     },
     {
       "imagen": require("../imagenes/mate8.jpg"),
-      "nombre": "Stanley acero inoxidable",
+      "nombre": "Camionero de algarrobo",
       "precio": "$30.650",
       "pantalla": "Producto"
 

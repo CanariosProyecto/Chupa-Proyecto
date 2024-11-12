@@ -11,7 +11,6 @@ const micuentainfo = ({ route }) => {
       <Text style={styles.text}>Nombre: {username}</Text>
       <Text style={styles.text}>Apellido: {apellido}</Text>
       <Text style={styles.text}>Email: {correo}</Text>
-      {/* Aquí puedes agregar otros campos si lo deseas */}
     </View>
   );
 };

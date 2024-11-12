@@ -23,7 +23,7 @@ import Pago from "../pantallas/pago"
 import infoPersonal from '../pantallas/infoPersonal';
 import preguntas from "../pantallas/preguntas"
 import micuentainfo from '../pantallas/micuentainfo';
-
+import TabInicio from "../pantallas/inicio";
 
 // Crear los navegadores
 const Drawer = createDrawerNavigator();
@@ -36,7 +36,7 @@ function LogoTitle() {
     <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Image
         source={Logo}
-        style={{ width: 50, height: 50, resizeMode: 'contain' }} // 4 cm = 100px aproximadamente
+        style={{ width: 50, height: 50, resizeMode: 'contain' }} 
       />
     </View>
   );
@@ -49,10 +49,10 @@ function createTabs(screenComponent) {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ color, size }) => {
           let iconName;
-          if (route.name === 'Inicio') {
-            iconName = 'home-outline'; // Icono de casa
+          if (route.name === 'TabInicio') {
+            iconName = 'home-outline'; 
           } else if (route.name === 'Carrito') {
-            iconName = 'cart-outline'; // Icono de carrito de compras
+            iconName = 'cart-outline'; 
           }
           return <Icon name={iconName} size={24} color={color} />;
         },
@@ -66,7 +66,7 @@ function createTabs(screenComponent) {
       })}
     >
       <Tab.Screen 
-        name="Inicio" 
+        name="TabInicio" 
         component={screenComponent} 
         options={{ headerShown: false }}
         listeners={{
@@ -76,7 +76,7 @@ function createTabs(screenComponent) {
             // Restablecer el stack a la pantalla de Inicio
             navigation.reset({
               index: 0,
-              routes: [{ name: 'Inicio' }],
+              routes: [{ name: 'TabInicio' }],
             });
           }
         }}
@@ -100,30 +100,6 @@ function CustomDrawerContent(props) {
     </View>
   );
 }
-
-
-
-/* 
-export const MenuItems=({navigation})=>{
-  const [isProductosOpen, setIsProductosOpen] = useState(false);
-
-  <View style={styles.desplegable}>
-            <TouchableOpacity onPress={()=>navigation.navigate('Productos')}><Text style={styles.buttonDesp}>Productos</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.img} onPress={() => setIsProductosOpen(!setIsProductosOpen)}><Image style={styles.imagen} source={require("../imagenes/flecha.webp")}/></TouchableOpacity>
-        </View>
-
-        {isProductosOpen && (
-                <View style={styles.submenu}>
-                    <TouchableOpacity style={styles.Size} onPress={() => navigation.navigate('Mates')}>
-                        <Text style={styles.dropdown}>Mates</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.Size} onPress={() => navigation.navigate('Yerbas')}>
-                        <Text style={styles.dropdown}>Yerbas</Text>
-                    </TouchableOpacity>
-                </View>
-               
-       )}
-}*/
 
 export default function DrawerNavigation() {
   

@@ -11,49 +11,49 @@ export default function  Yerbas(){
     {
       "imagen": require("../imagenes/yerba1.jpeg"),
       "nombre": "Canarias serena 500gr",
-      "precio": "$10",
+      "precio": "$4.500",
       "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/yerba2.jpeg"),
       "nombre": "Rey verde elaborada con palo 500gr",
-      "precio": "$5",
+      "precio": "$4.000",
       "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/yerba3.jpeg"),
       "nombre": "Canarias edición especial 500gr",
-      "precio": "$15",
+      "precio": "$4.700",
       "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/yerba4.jpeg"),
       "nombre": "Canarias 1Kg",
-      "precio": "$8",
+      "precio": "$8.000",
       "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/yerba5.jpeg"),
       "nombre": "Sara 1Kg",
-      "precio": "$10",
+      "precio": "$7.000",
       "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/yerba6.jpeg"),
       "nombre": "Sara extra suave 1Kg",
-      "precio": "$5",
+      "precio": "$7.000",
       "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/yerba7.jpeg"),
       "nombre": "Baldo 1Kg",
-      "precio": "$15",
+      "precio": "$8.500",
       "pantalla": "Producto"
     },
     {
       "imagen": require("../imagenes/yerba8.jpeg"),
       "nombre": "Rey verde tradicional 500gr",
-      "precio": "$8",
+      "precio": "$4.500",
       "pantalla": "Producto"
     }
   ];
