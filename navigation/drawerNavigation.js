@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Image, TouchableOpacity, Text} from 'react-native';
+import React from 'react';
+import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Logo from '../imagenes/logo1.png'; // Ruta del logo
+import Logo from '../imagenes/logo1.png';
+import { useAuth } from '../src/config/authcontext';
 
 // Pantallas
 import Inicio from '../pantallas/inicio';
@@ -22,13 +23,12 @@ import Envio from "../pantallas/envio"
 import Pago from "../pantallas/pago"
 import infoPersonal from '../pantallas/infoPersonal';
 import preguntas from "../pantallas/preguntas"
-import micuentainfo from '../pantallas/micuentainfo';
-import TabInicio from "../pantallas/inicio";
+import Micuentainfo from '../pantallas/micuentainfo';
+import Editarcuenta from '../pantallas/editarcuenta';
+import EditarDireccion from '../pantallas/editardirecciones';
 
-// Crear los navegadores
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
-
 
 // Componente para mostrar el logo centrado en el encabezado
 function LogoTitle() {
@@ -36,7 +36,7 @@ function LogoTitle() {
     <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Image
         source={Logo}
-        style={{ width: 50, height: 50, resizeMode: 'contain' }} 
+        style={{ width: 50, height: 50, resizeMode: 'contain' }}
       />
     </View>
   );
@@ -47,12 +47,12 @@ function createTabs(screenComponent) {
   return ({ navigation }) => (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ color, size }) => {
+        tabBarIcon: ({ color }) => {
           let iconName;
           if (route.name === 'TabInicio') {
-            iconName = 'home-outline'; 
+            iconName = 'home-outline';
           } else if (route.name === 'Carrito') {
-            iconName = 'cart-outline'; 
+            iconName = 'cart-outline';
           }
           return <Icon name={iconName} size={24} color={color} />;
         },
@@ -71,12 +71,11 @@ function createTabs(screenComponent) {
         options={{ headerShown: false }}
         listeners={{
           tabPress: e => {
-            // Prevenir la navegación predeterminada
+            // Previene la navegación predeterminada y restablece la navegación a Inicio
             e.preventDefault();
-            // Restablecer el stack a la pantalla de Inicio
             navigation.reset({
               index: 0,
-              routes: [{ name: 'TabInicio' }],
+              routes: [{ name: 'Inicio' }],
             });
           }
         }}
@@ -90,7 +89,6 @@ function createTabs(screenComponent) {
 function CustomDrawerContent(props) {
   return (
     <View style={{ flexGrow: 1 }}>
-      {/* Logo en la parte superior del Drawer */}
       <View style={styles.logoContainer}>
         <Image source={Logo} style={styles.logo} />
       </View>
@@ -102,112 +100,57 @@ function CustomDrawerContent(props) {
 }
 
 export default function DrawerNavigation() {
-  
+  const { user } = useAuth();
   return (
     <NavigationContainer>
       <Drawer.Navigator
-        initialRouteName="InicioConTabs"
+        initialRouteName="Inicio"
         drawerStyle={{
-          backgroundColor: 'black', // Aquí estableces el color de fondo
+          backgroundColor: 'black',
           width: 240,
         }}
         screenOptions={({ navigation }) => ({
           headerStyle: {
-            backgroundColor: '#2d572c', // Cambia el color del encabezado aquí
+            backgroundColor: '#2d572c',
           },
-          headerTintColor: '#fff', // Cambia el color del texto del encabezado
-          headerTitle: (props) => <LogoTitle {...props} />,  // Mostrar logo centrado
-          headerTitleAlign: 'center', // Asegurar que el logo esté centrado
+          headerTintColor: '#fff',
+          headerTitle: (props) => <LogoTitle {...props} />,
+          headerTitleAlign: 'center',
           headerRight: () => (
             <View style={{ flexDirection: 'row', marginRight: 10 }}>
-              {/* Icono de Lupa */}
               <TouchableOpacity onPress={() => alert('Perfil!')}>
                 <Icon name="search-outline" size={25} color="#fff" style={{ marginRight: 15 }} />
               </TouchableOpacity>
-              {/* Icono de Persona */}
-              <TouchableOpacity onPress={() => navigation.navigate("Registro")}>
+              <TouchableOpacity onPress={() => navigation.navigate(user ? "Micuentainfo" : "Registro")}>
                 <Icon name="person-outline" size={25} color="#fff" />
               </TouchableOpacity>
             </View>
           ),
         })}
+        drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
         <Drawer.Screen
           name="Inicio"
-          component={createTabs(Inicio)} // Tabs personalizados para la pantalla Inicio
+          component={createTabs(Inicio)}
           options={{ drawerLabel: 'Inicio' }}
         />
-        <Drawer.Screen
-        name="Producto"
-        component={createTabs(Producto)} // Tabs personalizados para la pantalla de Mates
-        options={{ drawerLabel: 'Producto' }}
-        />
-        <Drawer.Screen
-          name="Mates"
-          component={createTabs(Mates)} // Tabs personalizados para la pantalla de Mates
-          options={{ drawerLabel: 'Mates' }}
-        />
-        <Drawer.Screen
-          name="Termos"
-          component={createTabs(Termos)} // Tabs personalizados para la pantalla de Mates
-          options={{ drawerLabel: 'Termos' }}
-        />
-        <Drawer.Screen
-          name="Micuentaprueba"
-          component={createTabs(micuentainfo)} // Tabs personalizados para la pantalla de Mates
-          options={{ drawerLabel: 'micuentainfo' }}
-        />
-        <Drawer.Screen
-          name="Bombillas"
-          component={createTabs(Bombillas)} // Tabs personalizados para la pantalla de Mates
-          options={{ drawerLabel: 'Bombillas' }}
-        />
-        <Drawer.Screen
-        name="Yerbas"
-        component={createTabs(Yerbas)} // Tabs personalizados para la pantalla de Mates
-        options={{ drawerLabel: 'Yerbas' }}
-        />
-        <Drawer.Screen
-          name="Registro"
-          component={createTabs(RegistroPantalla)} // Tabs personalizados para la pantalla de Registro
-          options={{ drawerLabel: 'Registro' }}
-        />
-        <Drawer.Screen
-          name="TerminosyCondiciones"
-          component={createTabs(TerminosyCondiciones)} // Tabs personalizados para la pantalla de Mates
-          options={{ drawerLabel: 'Terminos y condiciones' }}
-        />
-        <Drawer.Screen
-          name="infoPersonal"
-          component={createTabs(infoPersonal)} // Tabs personalizados para la pantalla de Mates
-          options={{ drawerLabel: 'Informanción Personal' }}
-        />
-        <Drawer.Screen
-          name="preguntas"
-          component={createTabs(preguntas)} // Tabs personalizados para la pantalla de Mates
-          options={{ drawerLabel: 'Preguntas frecuentes' }}
-        />
-        <Drawer.Screen
-          name="Envio"
-          component={createTabs(Envio)} // Tabs personalizados para la pantalla de Mates
-          options={{ drawerLabel: 'Envio' }}
-        />
-        <Drawer.Screen
-          name="Pago"
-          component={createTabs(Pago)} // Tabs personalizados para la pantalla de Mates
-          options={{ drawerLabel: 'Pago' }}
-        />
-        <Drawer.Screen
-          name="Cambiar Contraseña"
-          component={createTabs(CambiarContraseña)} // Tabs personalizados para la pantalla Cambiar Contraseña
-          options={{ drawerLabel: 'Cambiar Contraseña' }}
-        />
-        <Drawer.Screen
-          name="Inicio de sesión"
-          component={createTabs(InicioSes)} // Tabs personalizados para la pantalla de Inicio de sesión
-          options={{ drawerLabel: 'Inicio de sesión' }}
-        />
-        </Drawer.Navigator>
+        <Drawer.Screen name="Producto" component={createTabs(Producto)} options={{ drawerLabel: 'Producto' }} />
+        <Drawer.Screen name="Mates" component={createTabs(Mates)} options={{ drawerLabel: 'Mates' }} />
+        <Drawer.Screen name="Termos" component={createTabs(Termos)} options={{ drawerLabel: 'Termos' }} />
+        <Drawer.Screen name="Bombillas" component={createTabs(Bombillas)} options={{ drawerLabel: 'Bombillas' }} />
+        <Drawer.Screen name="Yerbas" component={createTabs(Yerbas)} options={{ drawerLabel: 'Yerbas' }} />
+        <Drawer.Screen name="Registro" component={createTabs(RegistroPantalla)} options={{ drawerLabel: 'Registro' }} />
+        <Drawer.Screen name="TerminosyCondiciones" component={createTabs(TerminosyCondiciones)} options={{ drawerLabel: 'Términos y condiciones' }} />
+        <Drawer.Screen name="infoPersonal" component={createTabs(infoPersonal)} options={{ drawerLabel: 'Información Personal' }} />
+        <Drawer.Screen name="preguntas" component={createTabs(preguntas)} options={{ drawerLabel: 'Preguntas Frecuentes' }} />
+        <Drawer.Screen name="Envio" component={createTabs(Envio)} options={{ drawerLabel: 'Envío' }} />
+        <Drawer.Screen name="Pago" component={createTabs(Pago)} options={{ drawerLabel: 'Pago' }} />
+        <Drawer.Screen name="Cambiar Contraseña" component={createTabs(CambiarContraseña)} options={{ drawerLabel: 'Cambiar Contraseña' }} />
+        <Drawer.Screen name="Inicio de sesión" component={createTabs(InicioSes)} options={{ drawerLabel: 'Inicio de sesión' }} />
+        <Drawer.Screen name="Micuentainfo" component={createTabs(Micuentainfo)} options={{ drawerLabel: 'Mi Cuenta' }} />
+        <Drawer.Screen name="Editarcuenta" component={createTabs(Editarcuenta)} options={{ drawerLabel: 'Editar Cuenta' }} />
+        <Drawer.Screen name="EditarDireccion" component={createTabs(EditarDireccion)} options={{ drawerLabel: 'Editar Direccion' }} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
@@ -215,45 +158,12 @@ export default function DrawerNavigation() {
 const styles = StyleSheet.create({
   logoContainer: {
     flex: 1,
-    justifyContent: 'center', // Centra el logo verticalmente
-    alignItems: 'center', // Centra el logo horizontalmente
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   logo: {
-    width: 100, // Ajusta según el tamaño de tu logo
+    width: 100,
     height: 100,
-    resizeMode: 'contain', // Mantiene la proporción del logo
+    resizeMode: 'contain',
   },
-  submenu:{
-    backgroundColor:'#212121',
-  },
-  desplegable:{
-      display:'flex',
-      flexDirection:'row',
-      width:'100%',
-      color:'#fff',
-      padding:15,
-      marginTop:'5%',
-      width:'100%',
-      display:'flex',
-      alignItems:'center',
-      justifyContent:'center'
-
-  },
-  buttonDesp:{
-      textAlign:'center',  
-      color:'#fff',
-
-  },
-  dropdown:{
-      color:'white',
-
-      textAlign:'right',
-      padding:10,
-      marginTop:'2%'
-  },
-  Size:{
-      width:'100%',
-  },
-
 });
-

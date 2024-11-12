@@ -1,9 +1,6 @@
 
 import React, { useState } from 'react';
 import { View, Text, Alert, StyleSheet, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, TextInput } from 'react-native';
-import Boton from '../componentes/boton';
-
-// Importación de Firebase
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
@@ -29,41 +26,46 @@ const RegistroPantalla = ({ navigation }) => {
   const [apellido, setApellido] = useState('');
   const [mail, setMail] = useState('');
 
+
   const handleRegistro = async () => {
+    // Validar que todos los campos estén completos
     if (mail === '' || password === '' || username === '' || apellido === '') {
       Alert.alert('Error', 'Por favor, completa todos los campos.');
-    } else {
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, mail, password);
-        const user = userCredential.user;
+      return; // Añadido: salir de la función si hay campos vacíos
+    }
 
-        // Guarda la información adicional del usuario en Firestore
-        await setDoc(doc(db, 'users', user.uid), {
-          nombre: username,
-          apellido: apellido,
-          correo: mail,
-          userId: user.uid,
-        });
+    try {
+      // Crear usuario con email y contraseña
+      const userCredential = await createUserWithEmailAndPassword(auth, mail, password);
+      const user = userCredential.user;
 
-        Alert.alert('Éxito', '¡Cuenta creada con éxito!');
-        
-        // Navega a la pantalla de perfil pasando los datos del usuario
-        navigation.navigate('Perfil', {
-          nombre: username,
-          apellido: apellido,
-          correo: mail,
-        });
-      } catch (error) {
-        const errorCode = error.code;
-        if (errorCode === 'auth/email-already-in-use') {
-          Alert.alert('Error', 'El correo ya está en uso.');
-        } else if (errorCode === 'auth/invalid-email') {
-          Alert.alert('Error', 'El correo no es válido.');
-        } else if (errorCode === 'auth/weak-password') {
-          Alert.alert('Error', 'La contraseña debe tener al menos 6 caracteres.');
-        } else {
-          Alert.alert('Error', error.message);
-        }
+      // Guarda la información adicional del usuario en Firestore
+      await setDoc(doc(db, 'users', user.uid), {
+        nombre: username,
+        apellido: apellido,
+        correo: mail,
+        userId: user.uid, // Guarda el ID del usuario
+      });
+
+      Alert.alert('Éxito', '¡Cuenta creada con éxito!');
+      
+      // Navega a la pantalla de perfil pasando los datos del usuario
+      navigation.navigate('Inicio de sesión', {
+        nombre: username,
+        apellido: apellido,
+        correo: mail,
+       
+      });
+    } catch (error) {
+      const errorCode = error.code;
+      if (errorCode === 'auth/email-already-in-use') {
+        Alert.alert('Error', 'El correo ya está en uso.');
+      } else if (errorCode === 'auth/invalid-email') {
+        Alert.alert('Error', 'El correo no es válido.');
+      } else if (errorCode === 'auth/weak-password') {
+        Alert.alert('Error', 'La contraseña debe tener al menos 6 caracteres.');
+      } else {
+        Alert.alert('Error', error.message);
       }
     }
   };
@@ -99,8 +101,10 @@ const RegistroPantalla = ({ navigation }) => {
             label="Email"
             value={mail}
             onChangeText={setMail}
+            keyboardType="email-address" // Mejora para validar email
             style={styles.input}
           />
+
 
           <Text style={styles.label}>Contraseña</Text>
           <TextInput
@@ -109,6 +113,8 @@ const RegistroPantalla = ({ navigation }) => {
             onChangeText={setPassword}
             secureTextEntry
           />
+          
+
 
           <TouchableOpacity style={styles.boton} onPress={handleRegistro}>
             <Text style={styles.buttonText}>Crear cuenta</Text>

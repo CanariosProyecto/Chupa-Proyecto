@@ -31,7 +31,7 @@ const InicioSes = ({ navigation }) => {
         
         Alert.alert('Éxito', '¡Inicio de sesión exitoso!');
         console.log(userCredential.user.uid)
-        navigation.navigate('Inicio') //falta que cuando aprete vaya al inicio (me deja con todas las pantallas MENOS con inicio)
+        navigation.navigate('Inicio') 
         Alert.alert ('exito')
       })
       .catch((error) => {
