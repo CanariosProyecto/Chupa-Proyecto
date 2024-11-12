@@ -13,19 +13,16 @@ const infoPersonal = () => {
       <View style={styles.container}>
           <Text style={styles.titulo}>Información personal </Text>
           <View style={styles.caja}>
-            <Text>
+            <Text style={styles.letras}>
                 Hola, nosotros somos un grupo de amigos con la iniciativa de un emprendimiento 
                 sobre cultural argentina. 
             </Text>
             <Text>{"\n"}</Text>
-            <Text>Pueden encontrarnos en: </Text>
-            <Text>Instagram: canarios  </Text> 
-            <Text> WhatsApp: 2994158752</Text>
-            <Text>Correo: canarios@gmail.com</Text>
-            
-              
+            <Text style={styles.letras}>Pueden encontrarnos en: </Text>
+            <Text style={styles.letras}>Instagram: canarios  </Text> 
+            <Text style={styles.letras}> WhatsApp: 2994158752</Text>
+            <Text style={styles.letras}>Correo: canarios@gmail.com</Text>
           </View>
-          
         </View>
       </ScrollView>
        </KeyboardAvoidingView>
@@ -49,7 +46,11 @@ const styles = StyleSheet.create({
     height:300,
     width: 350, 
     backgroundColor: '#daefb2',
-    marginTop:80
+    marginTop:80,
+    borderRadius: 10,
+  },
+  letras:{
+    fontSize: 16,
   }
     
 });

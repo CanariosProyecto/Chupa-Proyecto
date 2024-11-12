@@ -124,7 +124,8 @@ const Preguntas = ({navigation}) => {
                 {isPregunta1Visible && (
                 <View style={styles.detalleContenido}>
                   <View style={styles.discountContainer}>
-                 <Text>Respuesta</Text>
+                 <Text>Se aceptan devoluciones dentro de los 30 días posteriores a la compra, siempre que 
+                  el producto esté en su estado original y con el comprobante de compra.</Text>
                 </View>
                 </View>
                 )}
@@ -140,7 +141,7 @@ const Preguntas = ({navigation}) => {
                 {isPregunta2Visible && (
                 <View style={styles.detalleContenido}>
                   <View style={styles.discountContainer}>
-                 <Text>Respuesta</Text>
+                 <Text>Sí, ofrecemos descuentos para compras al por mayor y promociones especiales en fechas destacadas.</Text>
                 </View>
                 </View>
                 )}
@@ -156,7 +157,7 @@ const Preguntas = ({navigation}) => {
                 {isPregunta3Visible && (
                 <View style={styles.detalleContenido}>
                   <View style={styles.discountContainer}>
-                 <Text>Respuesta</Text>
+                 <Text>No, debes tener una cuenta para poder realizar tu pedido.</Text>
                 </View>
                 </View>
                 )}
@@ -172,7 +173,8 @@ const Preguntas = ({navigation}) => {
                {isPregunta4Visible && (
                <View style={styles.detalleContenido}>
                  <View style={styles.discountContainer}>
-                <Text>Respuesta</Text>
+                <Text>Puedes cancelar o modificar tu pedido contactando a nuestro servicio al cliente dentro 
+                  de las 24 horas posteriores a la compra.</Text>
                </View>
                </View>
                )}
@@ -219,10 +221,12 @@ const styles = StyleSheet.create({
     caja:{
       padding:30,
       margin:10,
-      height:700,
+      height:580,
       width: 350, 
       backgroundColor: '#daefb2',
-      marginTop:40
+      marginTop:40,
+      borderRadius: 10,
+
     },
     texto:{
       textAlign: 'center'

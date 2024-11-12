@@ -9,50 +9,50 @@ export default function  Bombillas() {
   const navigation = useNavigation();
   let Bombilla = [
     {
-      "imagen": require("../imagenes/bombilla.prueba.jpg"),
-      "nombre": "Bombilla de bronce",
+      "imagen": require("../imagenes/bombilla1.jpg"),
+      "nombre": "Bombilla pico de loro alpaca",
       "precio": "$15.000",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombilla2.jpeg"),
-      "nombre": "Bombilla pico de loro ",
+      "imagen": require("../imagenes/bombilla2.webp"),
+      "nombre": "Bombillon pico de rey alpaca cincelada ",
       "precio": "$5.000",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombilla3.jpeg"),
-      "nombre": "Bombilla de alpaca",
+      "imagen": require("../imagenes/bombilla3.webp"),
+      "nombre": "Bombilla pico de rey alpaca",
       "precio": "$7.500",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombilla4.jpeg"),
-      "nombre": "Bombilla de alpaca cincelada",
+      "imagen": require("../imagenes/bombilla4.webp"),
+      "nombre": "Bombilla pico de rey",
       "precio": "$9.500",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombilla5.jpeg"),
+      "imagen": require("../imagenes/bombilla5.webp"),
       "nombre": "Bombillón pico de rey",
       "precio": "$20.000",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombilla6.jpeg"),
-      "nombre": "Bombilla alpaca pico de loro",
+      "imagen": require("../imagenes/bombilla6.webp"),
+      "nombre": "Bombilla pico de loro",
       "precio": "$8.000",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombilla7.jpeg"),
-      "nombre": "Bombilla de alpaca y bronce",
+      "imagen": require("../imagenes/bombilla7.webp"),
+      "nombre": "Bombilla pico de rey alpaca",
       "precio": "$23.500",
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/bombilla8.jpeg"),
-      "nombre": "Bombilla pico de loro virola fina",
+      "imagen": require("../imagenes/bombilla8.webp"),
+      "nombre": "Bombilla pico de loro economica",
       "precio": "$4.500",
       "pantalla": "Producto"
     }

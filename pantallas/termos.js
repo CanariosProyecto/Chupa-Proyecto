@@ -15,7 +15,7 @@ export default function  Termos() {
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termo2.webp"),
+      "imagen": require("../imagenes/termo2c.jpg"),
       "nombre": "Termolar r-evolution plomo",
       "precio": "$83.000,00",
       "pantalla": "Producto"
@@ -45,7 +45,7 @@ export default function  Termos() {
       "pantalla": "Producto"
     },
     {
-      "imagen": require("../imagenes/termo7.webp"),
+      "imagen": require("../imagenes/termo7c.jpg"),
       "nombre": "Termolar r-evolution bronce",
       "precio": " $83.000,00",
       "pantalla": "Producto"

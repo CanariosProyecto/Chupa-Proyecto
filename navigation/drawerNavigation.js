@@ -75,7 +75,7 @@ function createTabs(screenComponent) {
             e.preventDefault();
             navigation.reset({
               index: 0,
-              routes: [{ name: 'Inicio' }],
+              routes: [{ name: 'TabInicio' }],
             });
           }
         }}

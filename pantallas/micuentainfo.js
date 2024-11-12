@@ -134,7 +134,7 @@ const MiCuentaInfo = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f3f2a1',
+    backgroundColor: '#f5f5dc',
     padding: 20,
   },
   title: {
